@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/developer-pic-1.png";
+import lightBulb from "../../public/images/svgs/miscellaneous_icons_1.svg";
 import AnimatedText from "@/components/AnimatedText";
 import Link from "next/link";
 import { LinkArrow } from "@/components/Icons";
@@ -48,6 +49,9 @@ export default function Home() {
 					</div>
 				</Layout>
 				<HireMe/>
+				<div className="absolute inline-block w-24 right-8 bottom-8">
+					<Image src={lightBulb} alt="zultan" className="w-full h-auto"/>
+				</div>
 			</main>
 		</>
 	);
