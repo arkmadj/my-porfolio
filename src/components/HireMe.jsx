@@ -10,7 +10,7 @@ const HireMe = () => {
 				<Link
 					href="mailto:abcd@gmail.com"
 					className="absolute flex items-center justify-center w-20 font-semibold -translate-x-1/2 -translate-y-1/2 border border-solid rounded-full shadow-md left-1/2 top-1/2 bg-dark text-light border-dark aspect-square hover:bg-light hover:text-dark"
-				>Hire mes</Link>
+				>Hire me</Link>
 			</div>
 		</div>
 	);
