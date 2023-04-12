@@ -3,6 +3,32 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/developer-pic-2.jpg";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+const AnimatedNumbers = ({ value }) => {
+	const ref = useRef(null);
+
+	const motionValue = useMotionValue(0);
+	const springValue = useSpring(motionValue, { duration: 3000 });
+	const isInView = useInView(ref, {once: true});
+
+	useEffect(() => {
+		if (isInView) {
+			motionValue.set(value);
+		}
+	}, [isInView, value, motionValue]);
+
+	useEffect(() => {
+		springValue.on("change", (latest) => {
+			if (ref.current && latest.toFixed(0) <= value) {
+				ref.current.textContent = latest.toFixed(0);
+			}
+		});
+	}, [springValue, value]);
+
+	return <span ref={ref}></span>;
+};
 
 const about = () => {
 	return (
@@ -15,7 +41,7 @@ const about = () => {
 				<Layout className="pt-16">
 					<AnimatedText className="mb-16" text="Passion Fuels Purpose!" />
 					<div className="grid items-start w-full grid-cols-8 gap-16">
-						<div className="flex flex-col items-start justify-center col-span-3">
+						<div className="flex flex-col items-start justify-start col-span-3">
 							<h2 className="mb-4 text-lg font-bold uppercase text-dark/75">
 								Biography
 							</h2>
@@ -26,7 +52,7 @@ const about = () => {
 								am always looking for new and innovative ways to bring my
 								clients&#39; visions to life.
 							</p>
-							<p className="mt-4 font-medium">
+							<p className="my-4 font-medium">
 								I believe that design is about more than just making things look
 								pretty - it&#39;s about solving problems and creating intuitive,
 								enjoyable experiences for users.
@@ -47,18 +73,30 @@ const about = () => {
 								className="w-full h-auto rounded-2xl"
 							/>
 						</div>
-						<div className="flex flex-col items-end justify-between col-span-2">
+						<div className="flex flex-col items-end justify-between h-full col-span-2">
 							<div className="flex flex-col items-end justify-center">
-								<span className="inline-block font-bold text-7xl">50+</span>
-								<h2 className="text-xl font-medium capitalize text-dark/75">satisfied clients</h2>
+								<span className="inline-block font-bold text-7xl">
+									<AnimatedNumbers value={50} />+
+								</span>
+								<h2 className="text-xl font-medium capitalize text-dark/75">
+									satisfied clients
+								</h2>
 							</div>
 							<div className="flex flex-col items-end justify-center">
-								<span className="inline-block font-bold text-7xl">40+</span>
-								<h2 className="text-xl font-medium capitalize text-dark/75">projects completed</h2>
+								<span className="inline-block font-bold text-7xl">
+									<AnimatedNumbers value={40} />+
+								</span>
+								<h2 className="text-xl font-medium capitalize text-dark/75">
+									projects completed
+								</h2>
 							</div>
 							<div className="flex flex-col items-end justify-center">
-								<span className="inline-block font-bold text-7xl">4+</span>
-								<h2 className="text-xl font-medium capitalize text-dark/75">years of experience</h2>
+								<span className="inline-block font-bold text-7xl">
+									<AnimatedNumbers value={4} />+
+								</span>
+								<h2 className="text-xl font-medium capitalize text-dark/75">
+									years of experience
+								</h2>
 							</div>
 						</div>
 					</div>
