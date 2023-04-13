@@ -15,9 +15,7 @@ const Details = ({ type, time, place, info }) => {
 				whileInView={{ y: 0 }}
 				transition={{ duration: 0.5, type: "spring" }}
 			>
-				<h3 className="text-2xl font-bold capitalize">
-					{type}
-				</h3>
+				<h3 className="text-2xl font-bold capitalize">{type}</h3>
 				<span className="font-medium capitalize text-dark/75">
 					{time} | {place}
 				</span>
@@ -35,9 +33,7 @@ const Education = () => {
 	});
 	return (
 		<div className="my-64">
-			<h2 className="w-full mb-32 font-bold text-center text-8xl">
-				Education
-			</h2>
+			<h2 className="w-full mb-32 font-bold text-center text-8xl">Education</h2>
 			<div ref={ref} className="w-[75%] mx-auto relative">
 				<motion.div
 					style={{ scaleY: scrollYProgress }}
@@ -45,54 +41,22 @@ const Education = () => {
 				/>
 				<ul className="flex flex-col items-start justify-between w-full gap-8 ml-4">
 					<Details
-						position="Software Engineer"
-						company="Google"
-						companyLink="www.google.com"
-						time="2022-Present"
-						address="Mountain View, CA"
-						work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization."
+						type="Bachelor Of Science In Computer Science"
+						time="2016-2020"
+						palce="Massachusetts Institute Of Technology (MIT)"
+						info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
 					/>
 					<Details
-						position="Software Engineer"
-						company="Google"
-						companyLink="www.google.com"
-						time="2022-Present"
-						address="Mountain View, CA"
-						work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization."
+						type="Bachelor Of Science In Computer Science"
+						time="2016-2020"
+						palce="Massachusetts Institute Of Technology (MIT)"
+						info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
 					/>
 					<Details
-						position="Software Engineer"
-						company="Google"
-						companyLink="www.google.com"
-						time="2022-Present"
-						address="Mountain View, CA"
-						work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization."
-					/>
-					<Details
-						position="Software Engineer"
-						company="Google"
-						companyLink="www.google.com"
-						time="2022-Present"
-						address="Mountain View, CA"
-						work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization."
-					/>
-					<Details
-						position="Software Engineer"
-						company="Google"
-						companyLink="www.google.com"
-						time="2022-Present"
-						address="Mountain View, CA"
-						work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization."
+						type="Bachelor Of Science In Computer Science"
+						time="2016-2020"
+						palce="Massachusetts Institute Of Technology (MIT)"
+						info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
 					/>
 				</ul>
 			</div>
