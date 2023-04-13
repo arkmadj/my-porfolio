@@ -1,4 +1,5 @@
 import { motion, useScroll } from "framer-motion";
+import { useRef } from "react";
 
 const Details = ({ position, company, companyLink, time, address, work }) => {
 	return (
@@ -24,13 +25,18 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
 };
 
 const Experience = () => {
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start end", "center start"],
+	});
 	return (
 		<div className="my-64">
 			<h2 className="w-full mb-32 font-bold text-center text-8xl">
 				Experience
 			</h2>
-			<div className="w-[75%] mx-auto relative">
-        <div className="absolute left-8 top-0 w-[4px] h-full bg-dark origin-top"/>
+			<div ref={ref} className="w-[75%] mx-auto relative">
+				<motion.div style={{scaleY: scrollYProgress}} className="absolute left-8 top-0 w-[4px] h-full bg-dark origin-top" />
 				<ul className="flex flex-col items-start justify-between w-full gap-8 ml-4">
 					<Details
 						position="Software Engineer"
