@@ -1,9 +1,11 @@
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
+import LiIcon from "./LiIcon";
 
 const Details = ({ position, company, companyLink, time, address, work }) => {
 	return (
 		<li className="flex flex-col items-center justify-between w-[60%] mx-auto">
+      <LiIcon/>
 			<div>
 				<h3 className="text-2xl font-bold capitalize">
 					{position}&nbsp;
