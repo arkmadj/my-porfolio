@@ -30,7 +30,11 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
 					<Link href={github} target="_blank" className="w-10">
 						<GithubIcon />
 					</Link>
-					<Link href={link} target="_blank" className="p-2 px-6 ml-4 text-lg font-semibold rounded-lg bg-dark text-light">
+					<Link
+						href={link}
+						target="_blank"
+						className="p-2 px-6 ml-4 text-lg font-semibold rounded-lg bg-dark text-light"
+					>
 						Visit the project
 					</Link>
 				</div>
@@ -39,9 +43,42 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
 	);
 };
 
-const Project = ({title, type, img}) => {
-  return()
-}
+const Project = ({ title, type, img, link, github }) => {
+	return (
+		<article>
+			<Link
+				href={link}
+				target="_blank"
+				className="w-full overflow-hidden rounded-lg cursor-pointer"
+			>
+				<Image src={img} alt={title} className="w-full h-auto" />
+			</Link>
+			<div className="flex flex-col items-start justify-between w-full pl-6">
+				<span className="text-xl font-medium text-primary">{type}</span>
+				<Link
+					href={link}
+					target="_blank"
+					className="hover:underline underline-offset-2"
+				>
+					<h2 className="w-full my-2 text-4xl font-bold text-left">{title}</h2>
+				</Link>
+				<p className="my-2 font-medium text-dark">{summary}</p>
+				<div className="flex items-center mt-2">
+					<Link href={github} target="_blank" className="w-10">
+						<GithubIcon />
+					</Link>
+					<Link
+						href={link}
+						target="_blank"
+						className="p-2 px-6 ml-4 text-lg font-semibold rounded-lg bg-dark text-light"
+					>
+						Visit
+					</Link>
+				</div>
+			</div>
+		</article>
+	);
+};
 
 const projects = () => {
 	return (
@@ -52,7 +89,10 @@ const projects = () => {
 			</Head>
 			<main className="flex flex-col items-center justify-center w-full mb-16">
 				<Layout className="pt-6">
-					<AnimatedText text="Imagination Trumps Knowledge!" className="mb-16"/>
+					<AnimatedText
+						text="Imagination Trumps Knowledge!"
+						className="mb-16"
+					/>
 					<div className="grid grid-cols-12 gap-24">
 						<div className="col-span-12">
 							<FeaturedProject
