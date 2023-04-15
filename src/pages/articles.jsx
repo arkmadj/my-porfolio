@@ -43,6 +43,8 @@ const MovingImg = ({ title, img, link }) => {
 				className="absolute z-10 hidden h-auto rounded-lg w-96"
 				ref={imgRef}
 				style={{ x, y }}
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
 			/>
 		</Link>
 	);
@@ -50,10 +52,15 @@ const MovingImg = ({ title, img, link }) => {
 
 const Article = ({ img, title, date, link }) => {
 	return (
-		<li className="relative flex items-center justify-between w-full p-4 py-6 my-4 border border-b-4 border-r-4 border-solid rounded-xl bg-light text-dark first:mt-0 border-dark">
+		<motion.li
+			className="relative flex items-center justify-between w-full p-4 py-6 my-4 border border-b-4 border-r-4 border-solid rounded-xl bg-light text-dark first:mt-0 border-dark"
+			initial={{ y: 200 }}
+			whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+			viewport={{ once: true }}
+		>
 			<MovingImg title={title} img={img} link={link} />
 			<span className="pl-4 font-semibold text-primary">{date}</span>
-		</li>
+		</motion.li>
 	);
 };
 
