@@ -4,6 +4,10 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import article1 from "../../public/images/articles/pagination component in reactjs.jpg";
+import article2 from "../../public/images/articles/create modal component in react using react portals.png";
+import { motion } from "framer-motion";
+
+const FramerImage = motion(Image);
 
 const FeaturedArticle = ({ img, title, time, summary, link }) => {
 	return (
@@ -11,12 +15,20 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
 			<Link
 				href={link}
 				target="_blank"
-				className="w-full overflow-hidden rounded-lg cursor-pointer"
+				className="inline-block w-full overflow-hidden rounded-lg cursor-pointer"
 			>
-				<Image src={img} alt={title} className="w-full h-auto" />
+				<FramerImage
+					src={img}
+					alt={title}
+					className="w-full h-auto"
+					whileHover={{ scale: 1.05 }}
+					transition={{ duration: 0.2 }}
+				/>
 			</Link>
 			<Link href={link} target="_blank">
-				<h2 className="my-2 text-2xl font-bold capitalize hover:underline">{title}</h2>
+				<h2 className="my-2 text-2xl font-bold capitalize hover:underline">
+					{title}
+				</h2>
 			</Link>
 			<p className="mb-2 text-sm">{summary}</p>
 			<span className="font-semibold text-primary">{time}</span>
@@ -49,7 +61,7 @@ const articles = () => {
             Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
 							time="9 min read"
 							link="/"
-							img={article1}
+							img={article2}
 						/>
 					</ul>
 				</Layout>
