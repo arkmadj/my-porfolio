@@ -4,17 +4,46 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import article1 from "../../public/images/articles/pagination component in reactjs.jpg";
+import { motion, useMotionValue } from "framer-motion";
 import article2 from "../../public/images/articles/create modal component in react using react portals.png";
-import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const FramerImage = motion(Image);
 
 const MovingImg = ({ title, img, link }) => {
+	const x = useMotionValue(0);
+	const y = useMotionValue(0);
+	const imgRef = useRef(null);
+
+	function handleMouse(event) {
+		imgRef.current.style.display = "inline-block";
+		x.set(event.pageX);
+		y.set(-10);
+	}
+
+	function handleMouseLeave(event) {
+		imgRef.current.style.display = "none";
+		x.set(0);
+		y.set(0);
+	}
+
 	return (
-		<Link href={link} target="_blank">
+		<Link
+			href={link}
+			target="_blank"
+			onMouseMove={handleMouse}
+			onMouseLeave={handleMouseLeave}
+		>
 			<h2 className="text-xl font-semibold capitalize hover:underline">
 				{title}
 			</h2>
+			<FramerImage
+				src={img}
+				alt={title}
+				className="absolute z-10 hidden h-auto rounded-lg w-96"
+				ref={imgRef}
+				style={{ x, y }}
+			/>
 		</Link>
 	);
 };
@@ -22,7 +51,7 @@ const MovingImg = ({ title, img, link }) => {
 const Article = ({ img, title, date, link }) => {
 	return (
 		<li className="relative flex items-center justify-between w-full p-4 py-6 my-4 border border-b-4 border-r-4 border-solid rounded-xl bg-light text-dark first:mt-0 border-dark">
-			<MovingImg />
+			<MovingImg title={title} img={img} link={link} />
 			<span className="pl-4 font-semibold text-primary">{date}</span>
 		</li>
 	);
