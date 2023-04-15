@@ -1,9 +1,14 @@
-import React from 'react'
+import Head from "next/head";
 
 const articles = () => {
-  return (
-    <div>articles</div>
-  )
-}
+	return (
+		<>
+			<Head>
+				<title>Zultan | Articles page</title>
+				<meta name="description" content="About me" />
+			</Head>
+		</>
+	);
+};
 
-export default articles
+export default articles;
