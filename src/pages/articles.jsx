@@ -9,9 +9,29 @@ import { motion } from "framer-motion";
 
 const FramerImage = motion(Image);
 
+const MovingImg = ({ title, img, link }) => {
+	return (
+		<Link href={link} target="_blank">
+			<h2 className="text-xl font-semibold capitalize hover:underline">
+				{title}
+			</h2>
+		</Link>
+	);
+};
+
+const Article = ({ img, title, date, link }) => {
+	return (
+		<li className="relative flex items-center justify-between w-full p-4 py-6 my-4 border border-b-4 border-r-4 border-solid rounded-xl bg-light text-dark first:mt-0 border-dark">
+			<MovingImg />
+			<span className="pl-4 font-semibold text-primary">{date}</span>
+		</li>
+	);
+};
+
 const FeaturedArticle = ({ img, title, time, summary, link }) => {
 	return (
-		<li className="w-full col-span-1 p-4 border border-solid bg-light border-dark rounded-2xl">
+		<li className="relative w-full col-span-1 p-4 border border-solid bg-light border-dark rounded-2xl">
+			<div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl" />
 			<Link
 				href={link}
 				target="_blank"
@@ -26,7 +46,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
 				/>
 			</Link>
 			<Link href={link} target="_blank">
-				<h2 className="my-2 text-2xl font-bold capitalize hover:underline">
+				<h2 className="my-2 mt-4 text-2xl font-bold capitalize hover:underline">
 					{title}
 				</h2>
 			</Link>
@@ -62,6 +82,53 @@ const articles = () => {
 							time="9 min read"
 							link="/"
 							img={article2}
+						/>
+					</ul>
+					<h2 className="w-full my-16 mt-32 text-4xl font-bold text-center">
+						All Articles
+					</h2>
+					<ul>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
+						/>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
+						/>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
+						/>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
+						/>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
+						/>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
+						/>
+						<Article
+							title="Silky Smooth Scrolling In Reactjs: A Step-By-Step Guide For React Developers"
+							date="March 22, 2023"
+							link="/"
+							img={article1}
 						/>
 					</ul>
 				</Layout>
