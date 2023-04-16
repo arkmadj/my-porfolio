@@ -53,20 +53,22 @@ const MovingImg = ({ title, img, link }) => {
 const Article = ({ img, title, date, link }) => {
 	return (
 		<motion.li
-			className="relative flex items-center justify-between w-full p-4 py-6 my-4 border border-b-4 border-r-4 border-solid rounded-xl bg-light text-dark first:mt-0 border-dark"
+			className="relative flex items-center justify-between w-full p-4 py-6 my-4 border border-b-4 border-r-4 border-solid rounded-xl bg-light text-dark first:mt-0 border-dark dark:border-light dark:bg-dark dark:text-light"
 			initial={{ y: 200 }}
 			whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
 			viewport={{ once: true }}
 		>
 			<MovingImg title={title} img={img} link={link} />
-			<span className="pl-4 font-semibold text-primary">{date}</span>
+			<span className="pl-4 font-semibold text-primary dark:text-primaryDark">
+				{date}
+			</span>
 		</motion.li>
 	);
 };
 
 const FeaturedArticle = ({ img, title, time, summary, link }) => {
 	return (
-		<li className="relative w-full col-span-1 p-4 border border-solid bg-light border-dark rounded-2xl">
+		<li className="relative w-full col-span-1 p-4 border border-solid bg-light border-dark rounded-2xl dark:bg-dark dark:text-light dark:border-light">
 			<div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl" />
 			<Link
 				href={link}
@@ -87,7 +89,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
 				</h2>
 			</Link>
 			<p className="mb-2 text-sm">{summary}</p>
-			<span className="font-semibold text-primary">{time}</span>
+			<span className="font-semibold text-primary dark:text-primaryDark">{time}</span>
 		</li>
 	);
 };
@@ -99,7 +101,7 @@ const articles = () => {
 				<title>Zultan | Articles page</title>
 				<meta name="description" content="About me" />
 			</Head>
-			<main className="flex flex-col items-center justify-center w-full mb-16 overflow-hidden">
+			<main className="flex flex-col items-center justify-center w-full mb-16 overflow-hidden dark:text-light">
 				<Layout className="pt-16">
 					<AnimatedText className="mb-16" text="Words Can Change The World! " />
 					<ul className="grid grid-cols-2 gap-16">
