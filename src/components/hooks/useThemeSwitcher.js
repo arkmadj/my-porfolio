@@ -12,7 +12,7 @@ const useThemeSwitcher = () => {
 			if (userPref) {
 				let check = userPref === "dark" ? "dark" : "light";
 				setMode(check);
-				if (check == "dark") {
+				if (check === "dark") {
 					document.documentElement.classList.add("dark");
 				} else {
 					document.documentElement.classList.remove("dark");
@@ -20,7 +20,7 @@ const useThemeSwitcher = () => {
 			} else {
 				let check = mediaQuery.matches ? "dark" : "light";
 				setMode(check);
-				if (check == "dark") {
+				if (check === "dark") {
 					document.documentElement.classList.add("dark");
 				} else {
 					document.documentElement.classList.remove("dark");
@@ -43,7 +43,7 @@ const useThemeSwitcher = () => {
 		}
 	}, [mode, setMode]);
 
-	return <div>useThemeSwitcher</div>;
+	return [mode, setMode];
 };
 
 export default useThemeSwitcher;
