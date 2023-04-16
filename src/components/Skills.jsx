@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 const Skill = ({ name, x, y }) => {
 	return (
 		<motion.div
-			className="absolute flex items-center justify-center px-6 py-3 font-semibold rounded-full bg-dark shadow-dark text-light"
+			className="absolute flex items-center justify-center px-6 py-3 font-semibold rounded-full bg-dark shadow-dark text-light dark:bg-light dark:text-dark"
 			whileHover={{ scale: 1.05 }}
 			initial={{ x: 0, y: 0 }}
-			whileInView={{ x, y }}
-			transition={{ duration: 1.5 }}
-			viewport={{once: true}}
+			whileInView={{ x, y, transition: { duration: 1.5 } }}
+			viewport={{ once: true }}
 		>
 			{name}
 		</motion.div>
@@ -19,9 +18,9 @@ const Skills = () => {
 	return (
 		<>
 			<h2 className="w-full mt-64 font-bold text-center text-8xl">Skills</h2>
-			<div className="relative flex items-center justify-center w-full h-screen rounded-full bg-circularLight">
+			<div className="relative flex items-center justify-center w-full h-screen rounded-full bg-circularLight dark:bg-circularDark">
 				<motion.div
-					className="flex items-center justify-center p-8 font-semibold rounded-full bg-dark shadow-dark text-light"
+					className="flex items-center justify-center p-8 font-semibold rounded-full bg-dark shadow-dark text-light dark:bg-light dark:text-dark"
 					whileHover={{ scale: 1.05 }}
 				>
 					Web
